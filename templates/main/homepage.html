@@ -1,0 +1,97 @@
+{% extends 'main/base.html' %}
+{% block title  %}Home Page{% endblock %}
+
+{% block content %}
+{% load static %}
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<style>
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
+    .content{
+        display: flex;
+        flex-flow: row wrap;
+        align-content: flex-start;
+        justify-content: center;
+        position:absolute;
+        top:0px;
+        right:0px;
+        bottom:0px;
+        left:0px;
+        background-color: #2b6777;
+    }
+    /* This is styling for the header div */
+    .header{
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        background-color: #52ab98;
+        width: 100%;
+        height: fit-content;
+        justify-content: space-evenly;
+        text-align: center;
+    }
+    h1{
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+ 
+        color: #fffafa;
+    }
+
+    button{
+        display:inline-block;
+        padding:0.46em 1.6em;
+        margin:0 0.2em 0.2em 0;
+        border:0.1em solid #050100;
+        border-radius:20px;
+        box-sizing: border-box;
+        text-decoration:none;
+        font-family: 'Poppins', sans-serif;
+        font-size: 20px;
+        font-weight:300;
+        color:#050100;
+        text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
+        background-color:#DFDCE3;
+        text-align:center;
+        transition: all 0.15s;
+        flex-basis: 40%;
+    }
+    button:hover{
+        text-shadow: 0 0 2em rgba(255,255,255,1);
+        color:#DFDCE3;
+        background-color: #2b6777;
+        border-color:#2b6777;
+    }
+
+    /* This is styling for the main info */
+    .main_info{
+        display: flex;
+        flex-flow: column wrap;
+        align-content: flex-start;
+        justify-content: center;
+        height : 80%;
+
+        text-align: center;
+    }
+    .image{
+        height : 70%;
+    }
+    h2{
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500;
+        color: #fffafa;
+    }
+</style>
+<div class="header">
+    <h1>Easy Appointment</h1>
+    <a href="http://127.0.0.1:8000/appointment"><button type="button" id="chooseTeacher_btn">New Appointment</button></a>
+    <a href="http://127.0.0.1:8000/view_apps"><button type="button" id="viewApps_btn">Your Appointments</button></a>
+    <a href="http://127.0.0.1:8000/view_fac"><button type="button" id="viewFac_btn">Faculty</button></a>
+    <a href="http://127.0.0.1:8000/logout_user"><button type="button" id="logout_btn">Log Out</button></a>
+</div>
+<div class="main_info">
+    <img class="image" src="{% static 'main/students.png' %}" alt="">
+    <h2>The future of University organisation<br>Convenience at your fingertips!</h2>
+</div>
+{% endblock %}
+

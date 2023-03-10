@@ -1,0 +1,125 @@
+{% extends 'main/base.html' %}
+{% block title  %}Faculty{% endblock %}
+
+{% block content %}
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<style>
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
+    .content{
+        display: flex;
+        flex-flow: row wrap;
+        align-content: flex-start;
+        position:absolute;
+        top:0px;
+        right:0px;
+        bottom:0px;
+        left:0px;
+        background-color: #2b6777;
+    }
+    /* This is styling for the header div */
+    .header{
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        background-color: #52ab98;
+        flex-basis: 100%;
+        height: fit-content;
+        justify-content: space-between;
+    }
+    h1{
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        padding-left: 5%;
+        color: #fffafa;
+    }
+    a{
+        margin-right: 3%;
+    }
+    .homepage_btn{
+        display:inline-block;
+        padding:0.46em 1.6em;
+        margin:0 0.2em 0.2em 0;
+        border:0.1em solid #050100;
+        border-radius:20px;
+        box-sizing: border-box;
+        text-decoration:none;
+        font-family: 'Poppins', sans-serif;
+        font-size: 20px;
+        font-weight:300;
+        color:#050100;
+        text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
+        background-color:#DFDCE3;
+        text-align:center;
+        transition: all 0.15s;
+        flex-basis: 40%;
+    }
+    .homepage_btn:hover{
+        text-shadow: 0 0 2em rgba(255,255,255,1);
+        color:#DFDCE3;
+        background-color: #2b6777;
+        border-color:#2b6777;
+    }
+    /* This is styling for the appointments table div */
+    .faculty_table{
+        display: flex;
+        flex-flow: row wrap;
+        background-color: #2b6777;
+        flex-basis: 100%;
+    }
+    /* This is the styling for the appointments array */
+    li{
+        list-style: none;
+    }
+    table, th, td {
+        
+        font-family: 'Poppins', sans-serif;
+        font-size: 20px;
+        color: #fffafa;
+    }
+    table{
+        flex-basis: 100%;
+        border-collapse: collapse;
+    }
+    th{
+        line-height: 30px;
+        border: 2px solid #050100;
+    }
+    
+    td{
+        line-height: 50px;
+        border: 2px solid #050100;
+        border: 2px solid #050100;
+    }
+    .info{
+        padding-left: 2vh;
+    }
+    .cancel_col{
+        text-align: center;
+        width: 10%;
+    }
+    
+</style>
+<div class="header">
+    <h1>Our Faculty Members</h1>
+    <a href="http://127.0.0.1:8000/"><button type="button" id="viewApps_btn" class="homepage_btn">Home Page</button></a>
+</div>
+<div class="faculty_table">
+    <table>
+        <tr>
+            <th>Teacher</th>
+            <th>Email</th>
+        </tr>
+            {% for teacher in faculty_list %}
+                <tr>
+                    <td class="info">{{teacher.name}}</td>
+                    <td class="info">{{teacher.email}}</td>
+                    <!-- <td class="cancel_col"><button type="button" id="viewApps_btn" class="cancel_btn">Cancel</button>
+                    </td> -->
+                </tr>
+            {% endfor %}
+    </table>
+</div>
+{% endblock %}
+

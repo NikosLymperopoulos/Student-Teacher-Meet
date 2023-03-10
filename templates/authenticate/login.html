@@ -1,0 +1,137 @@
+{% extends "main/base.html" %} {% block title %}Login Here{% endblock %}
+{% load crispy_forms_tags %} {% block content %}
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<style>
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
+    .content{
+        display: flex;
+        flex-flow: row nowrap;
+        position:absolute;
+        top:0px;
+        right:0px;
+        bottom:0px;
+        left:0px;
+    }
+    /* Login Section */
+    
+    .login_section{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        align-content: center;
+        flex-basis: auto;
+        background-color: #52ab98;
+    }
+    form{
+        display: flex;
+        flex-flow: row wrap;
+        flex-basis: 70%;
+        height: auto;
+        justify-content: center;
+    }
+    .login_text{
+        font-size: 50px;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        margin: 0 0 4% 0;
+    }
+    input{
+        font-family: 'Poppins', sans-serif;
+        border: 2px solid #2b6777;
+        border-radius: 20px;
+        font-size: 30px;
+        position: relative;
+        padding-left: 3%;
+        outline: none;
+    }
+    .username_container,.password_container{
+        display: flex;
+        flex-flow: row wrap;
+        flex-basis: 70%;
+    }
+    .username_input,.password_input{
+        flex-basis: 100%;
+        margin-bottom: 5%;
+    }
+    button{
+        display:inline-block;
+        padding:0.46em 1.6em;
+        margin:0 0.2em 0.2em 0;
+        border:0.1em solid #050100;
+        border-radius:20px;
+        box-sizing: border-box;
+        text-decoration:none;
+        font-family: 'Poppins', sans-serif;
+        font-size: 20px;
+        font-weight:300;
+        color:#050100;
+        text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
+        background-color:#DFDCE3;
+        text-align:center;
+        transition: all 0.15s;
+        flex-basis: 40%;
+    }
+    .login_section button:hover{
+        text-shadow: 0 0 2em rgba(255,255,255,1);
+        color:#DFDCE3;
+        background-color: #2b6777;
+        border-color:#2b6777;
+    }
+    .signup_section button:hover{
+        text-shadow: 0 0 2em rgba(255,255,255,1);
+        color:#DFDCE3;
+        background-color: #52ab98;
+        border-color:#52ab98;
+    }
+    h2,p{
+        color: #fffafa;
+    }
+    /* Here the login section of the page ends */
+    
+    /* Signup seciton */
+    .signup_section{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        align-content: center;
+        flex-basis: 40%;
+        background-color: #2b6777;
+    }
+    .signup_question{
+        font-size: 50px;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        margin: 0 0 4% 0;
+        text-align: center;
+    }
+    .signup_text{
+        font-family: 'Poppins', sans-serif;
+        text-align: center;
+        font-size: 20px;
+        margin-left: 2%;
+    }
+</style>
+
+<div class="login_section">
+<form method="POST" class="form-group">
+  {% csrf_token %} {{form|crispy}}
+  <p class="login_text">Login to Your Account</p>
+  <div class="username_container">
+    <!-- <label for="username_input" class="username_label">Username</label> -->
+    <input type="text" class="username_input" name="username" placeholder="Username"/>
+  </div>
+  <div class="password_container">
+    <!-- <label for="password_input" class="password_label">Password</label> -->
+    <input type="password" class="password_input" name="password" placeholder="Password"/>
+  </div>
+  <button type="submit" class="btn btn-success">Log In</button>
+</form>
+</div>
+<div class="signup_section">
+        <h2 class="signup_question">New Here?</h2>
+        <p class="signup_text">Sign up and discover a great amount of new opportunities!</p>
+        <a href="http://127.0.0.1:8000/register"><button type="button" id="register_btn">Sign Up</button></a>
+</div>
+{% endblock %}

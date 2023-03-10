@@ -1,0 +1,11 @@
+{% extends "main/base.html" %}
+
+{% block title %}Are u logged in?{% endblock %}
+
+{% block content %}
+{%if user.is_authenticated %}
+    <h1>You are already logged in! :D</h1>
+{% else %}
+    <h1>You are not logged in! :(</h1>
+{% endif %}
+{% endblock %}

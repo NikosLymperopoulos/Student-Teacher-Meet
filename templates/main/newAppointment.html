@@ -1,0 +1,162 @@
+{% extends 'main/base.html' %}
+{% block title  %}Make an Appointment{% endblock %}
+
+{% block content %}
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<style>
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
+    .content{
+        display: flex;
+        flex-flow: row wrap;
+        align-content: flex-start;
+        position:absolute;
+        top:0px;
+        right:0px;
+        bottom:0px;
+        left:0px;
+        background-color: #2b6777;
+        justify-content: center;
+        align-items: center;
+    }
+    /* This is styling for the header div */
+    .header{
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        background-color: #52ab98;
+        flex-basis: 100%;
+        height: fit-content;
+        justify-content: space-between;
+    }
+    h1{
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        padding-left: 5%;
+        color: #fffafa;
+    }
+    .homepage_btn{
+        display:inline-block;
+        padding:0.46em 1.6em;
+        margin:0 0.2em 0.2em 0;
+        border:0.1em solid #050100;
+        border-radius:20px;
+        box-sizing: border-box;
+        text-decoration:none;
+        font-family: 'Poppins', sans-serif;
+        font-size: 20px;
+        font-weight:300;
+        color:#050100;
+        text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
+        background-color:#DFDCE3;
+        text-align:center;
+        transition: all 0.15s;
+        flex-basis: 40%;
+    }
+    .homepage_btn:hover{
+        text-shadow: 0 0 2em rgba(255,255,255,1);
+        color:#DFDCE3;
+        background-color: #2b6777;
+        border-color:#2b6777;
+    }
+    
+    .submit_btn:hover{
+        text-shadow: 0 0 2em rgba(255,255,255,1);
+        color:#DFDCE3;
+        background-color: #52ab98;
+        border-color:#52ab98;
+    }
+    .submit_btn{
+        display:inline-block;
+        padding:0.46em 1.6em;
+        margin:0 0.2em 0.2em 0;
+        border:0.1em solid #050100;
+        border-radius:20px;
+        box-sizing: border-box;
+        text-decoration:none;
+        font-family: 'Poppins', sans-serif;
+        font-size: 15px;
+        color:#050100;
+        text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
+        background-color:#DFDCE3;
+        text-align:center;
+        transition: all 0.15s;
+        width: fit-content;
+    }
+    .form_elems{
+        position: absolute;
+        top: 50%;
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        height: 40%;
+        flex-basis:content;
+        align-self: center;
+    }
+    h2{
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        font-size: 30px;
+        text-align: center;
+        flex-basis: 100%;
+        height: fit-content;
+        color: #fffafa;
+    }
+    form{
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-content: center;
+        flex-basis: 80%;
+        text-align: center;
+
+        height: 60%;
+    }
+    select{
+        text-align: center;
+        height: 5vh;
+        width: 60vh;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        font-size: 18px;
+        background-color: #DFDCE3;
+        color: #050100;
+        outline: none;
+    }
+
+        
+</style>
+<script type="text/javascript">
+    
+    function populate(){
+     
+     console.log("This is populate and the value changed!");
+ 
+     // var list2 = document.getElementById("id_week");
+     // for (let i = 0; i < list2.length; i++) { 
+     //     console.log(list2[i].value);
+     //     new_list = list2[i].value;//log the value
+     // }
+     // var a = "{{name}}";
+     // var appointments = "{{appointments}}";
+     // console.log("appointments  is : "+appointments);//log the value
+ }
+ </script>
+<div class="header">
+    <h1>Let's create a new Appointment with {{name}}!</h1>
+    <a href="http://127.0.0.1:8000/"><button type="button" id="chooseTeacher_btn" class="homepage_btn">Home Page</button></a>
+</div>
+<div class="form_elems">
+    <h2>Please select a day and time slot</h2>
+    <form method="POST" action="">
+        {% csrf_token %}
+        {{form.as_p}}
+        <p><button type="submit" name="newAppointment" class="submit_btn">Submit</button></p>
+    </form>
+</div>
+</form>
+{% endblock %}
+
